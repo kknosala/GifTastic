@@ -23,9 +23,11 @@ $(document).ready(function() {
 
     function getInfo() {
 
+        $('#gif-display').empty();
+
         var apiKey = 'KpAFDpzhrqGAiuF7cxcm6XQmXZ32I0M4';
         var name = $(this).attr('actor-name');
-        var viewCount = 1;
+        var viewCount = 10;
 
         var apiURL = 'https://api.giphy.com/v1/gifs/search?api_key=' + apiKey + '&q=' + name + '&limit=' + viewCount;
 
@@ -35,21 +37,27 @@ $(document).ready(function() {
         }).then(function(response) {
             console.log(response);
             
-            var gifDiv = $('<div>')
-            var gifUrl = response.data[0].source;
+            for(var i = 0; i < response.data.length; i++){
 
-            console.log(gifUrl);
+                var gifDiv = $('<div>')
+                var gifUrl = response.data[i].images.original.url;
+                console.log(gifUrl);
+                var gifRating = response.data[i].rating;
+                console.log(gifRating);
 
-            var gifRating = response.data[0].rating;
+                gifDiv.addClass('m-2')
 
-            console.log(gifRating);
+                gifDiv.append('<p>Rated: ' + gifRating);
 
-            gifDiv.append('Rated: ' + gifRating);
+                var gifImage = $('<img>');
+                gifImage.attr('src', gifUrl);
+                gifImage.attr('alt', response.data[i].title);
+                gifImage.attr('motion', 'still');
+                gifDiv.append(gifImage);
 
-            var gifImage = $('<img>');
-            gifImage.attr('src', gifUrl);
-            gifImage.attr('motion', 'still');
-            gifDiv.append(gifImage);
+                $('#gif-display').append(gifDiv);
+
+            }
 
         })
     }
