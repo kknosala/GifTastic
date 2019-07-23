@@ -17,11 +17,28 @@ $(document).ready(function() {
             actorButton.text(actorArray[i]);
 
             $('#button-container').append(actorButton);
+
         }
     }
 
-    displayButtons();
+    function getInfo() {
 
+        var apiKey = 'KpAFDpzhrqGAiuF7cxcm6XQmXZ32I0M4';
+        var name = $(this).attr('actor-name');
+        var viewCount = 1;
+
+        var apiURL = 'https://api.giphy.com/v1/gifs/search?api_key=' + apiKey + '&q=' + name + '&limit=' + viewCount;
+
+        $.ajax({
+            url: apiURL,
+            method: "GET"
+        }).then(function(response) {
+            console.log(response);
+        })
+    }
+
+    displayButtons();
+    $(document).on('click', '.movie-button', getInfo)
 
 
 
