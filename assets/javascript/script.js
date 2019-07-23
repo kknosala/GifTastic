@@ -34,6 +34,23 @@ $(document).ready(function() {
             method: "GET"
         }).then(function(response) {
             console.log(response);
+            
+            var gifDiv = $('<div>')
+            var gifUrl = response.data[0].source;
+
+            console.log(gifUrl);
+
+            var gifRating = response.data[0].rating;
+
+            console.log(gifRating);
+
+            gifDiv.append('Rated: ' + gifRating);
+
+            var gifImage = $('<img>');
+            gifImage.attr('src', gifUrl);
+            gifImage.attr('motion', 'still');
+            gifDiv.append(gifImage);
+
         })
     }
 
