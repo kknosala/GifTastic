@@ -8,6 +8,8 @@ body {
 #gif-display {
     background-color: lightblue;
     border: 2px black solid;
+    display: flex;
+    flex-flow: row wrap;
 }
 #search-field {
     background-color: lightcoral;

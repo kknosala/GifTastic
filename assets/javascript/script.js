@@ -3,6 +3,10 @@ $(document).ready(function() {
     //Array of searches
     var actorArray = ['Keanu Reeves', 'Terry Cruz', 'Adam Samberg', 'Leslie Nielsen', 'Bryan Cranston', 'Jim Carrey', 'Will Ferrel', 'Rowan Atkinson', 'Simon Pegg'];
     
+    var apiKey = 'KpAFDpzhrqGAiuF7cxcm6XQmXZ32I0M4';
+    var name = '';
+    var viewCount = '';
+
     //Function for displaying buttons
     function displayButtons(){
 
@@ -25,9 +29,8 @@ $(document).ready(function() {
 
         $('#gif-display').empty();
 
-        var apiKey = 'KpAFDpzhrqGAiuF7cxcm6XQmXZ32I0M4';
-        var name = $(this).attr('actor-name');
-        var viewCount = 10;
+        // name = $(this).attr('actor-name');
+        // viewCount = 10;
 
         var apiURL = 'https://api.giphy.com/v1/gifs/search?api_key=' + apiKey + '&q=' + name + '&limit=' + viewCount;
 
@@ -40,8 +43,9 @@ $(document).ready(function() {
             for(var i = 0; i < response.data.length; i++){
 
                 var gifDiv = $('<div>')
-                var gifUrl = response.data[i].images.fixed_height.url;
-                console.log(gifUrl);
+                var stillGif = response.data[i].images.fixed_height_still.url;
+                var motionGif = response.data[i].images.fixed_height.url;
+                console.log(motionGif);
                 var gifRating = response.data[i].rating;
 
                 gifDiv.addClass('m-2')
@@ -50,7 +54,7 @@ $(document).ready(function() {
 
                 var gifImage = $('<img>');
 
-                gifImage.attr('src', gifUrl);
+                gifImage.attr('src', stillGif);
                 gifImage.attr('alt', response.data[i].title);
                 gifImage.attr('motion', 'still');
 
@@ -63,23 +67,36 @@ $(document).ready(function() {
         })
     }
         
+    displayButtons();
+
     $('#add-actor').on('click', function(event){
             
         event.preventDefault();
 
         var actor = $('#name-search').val().trim();
 
-        actorArray.push(actor);
+        if(actorArray.indexOf(actor) === -1){
+            actorArray.push(actor);
+        }
 
         displayButtons();
 
-        $('#actor-search').reset();
+        name = actor;
+
+        viewCount = $('#how-many').val();
+
+        postGif();
+
+        // $('#actor-search').reset();
             
     })
     
-
-    displayButtons();
-    $(document).on('click', '.movie-button', postGif)
+    $(document).on('click', '.movie-button', function(){
+        
+        name = $(this).attr('actor-name');
+        viewCount = 10;
+        postGif()
+    })
 
 
 

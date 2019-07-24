@@ -20,21 +20,25 @@
     <body>
         <div class="fluid-container">
             <div class="row">
-                <div class="col" id="button-container">
-                    <p>Test Text</p>
-                </div>
+                <div class="col" id="button-container"></div>
             </div>
             <div class="row">
-                <div class="col-8" id="gif-display">
-                    <p>Test Text</p>
-                </div>
+                <div class="col-8" id="gif-display"></div>
                 <div class="col-4" id="search-field">
                         <form>
-                                <div class="form" id="actor-search">
-                                  <label for="name-search">Enter Your Actor's Name</label>
-                                  <input type="text" class="form-control" id="name-search" aria-describedby="UserSubmission" placeholder="Actor Name">
-                                </div>
-                                <input id='add-actor' type="submit" value="Submit">
+                            <div class="form" id="actor-search">
+                                <label for="name-search" class="m-2">Enter Your Actor's Name</label>
+                                <input type="text" class="form-control m-2" id="name-search" aria-describedby="UserSubmission" placeholder="Actor Name">
+                                <label for="exampleFormControlSelect1">How Many Gifs Do You Want?</label>
+                                <select class="form-control" id="how-many">
+                                <option>1</option>
+                                <option>5</option>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary m-2" id='add-actor'>Submit</button>
+                            </div>
                         </form>
                 </div>
             </div>
