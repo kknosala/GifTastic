@@ -19,17 +19,26 @@
 
     <body>
         <div class="fluid-container">
-            <div class="row">
-                <div class="col" id="button-container"></div>
+            <dif class="row justify-content-center">
+                <div class="col-10 pl-5">
+                    <h1>Actor Gif Search</h1>
+                    <p>Click the actors below or enter your own actors in the search field to the right to see the gifs!</p>
+                </div>
+            </dif>
+            <div class="row justify-content-center">
+                <div class="col-10 pr-5 pl-5 pt-2 pb-2" id="button-container"></div>
             </div>
-            <div class="row">
-                <div class="col-8" id="gif-display"></div>
-                <div class="col-4" id="search-field">
+        </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-7" id="gif-display"></div>
+                <div class="col-3 p-1" id="search-field">
                         <form>
-                            <div class="form" id="actor-search">
-                                <label for="name-search" class="m-2">Enter Your Actor's Name</label>
-                                <input type="text" class="form-control m-2" id="name-search" aria-describedby="UserSubmission" placeholder="Actor Name">
-                                <label for="exampleFormControlSelect1">How Many Gifs Do You Want?</label>
+                            <div class="form-group col-11" id="actor-search">
+                                <label for="name-search">Enter Your Actor's Name</label>
+                                <input type="text" class="form-control" id="name-search" aria-describedby="UserSubmission" placeholder="Actor Name">
+                            </div>
+                            <div class="form-group col-11">
+                                <label for="Gif-Amount">How Many Gifs Do You Want to See?</label>
                                 <select class="form-control" id="how-many">
                                 <option>1</option>
                                 <option>5</option>
@@ -37,8 +46,22 @@
                                 <option>15</option>
                                 <option>20</option>
                                 </select>
-                                <button type="submit" class="btn btn-primary m-2" id='add-actor'>Submit</button>
                             </div>
+                                <button type="submit" class="btn btn-primary mb-2 ml-3" id='add-actor'>Submit</button>
+                        </form>
+                        <hr>
+                        <form>
+                            <div class="form-group col-11 show-more">
+                                <label for="Gif-Amount">How many more pictures would you like to see?</label>
+                                <select class="form-control" id="how-many-more">
+                                <option>1</option>
+                                <option>5</option>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2 ml-3" id='more-gifs'>Show Me More!</button>
                         </form>
                 </div>
             </div>

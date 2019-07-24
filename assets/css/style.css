@@ -1,6 +1,9 @@
 body {
     background-color: grey;
 }
+hr {
+    color: black;
+}
 #button-container {
     background-color: white;
     border: 2px black solid;
