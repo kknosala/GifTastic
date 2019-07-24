@@ -54,10 +54,8 @@ $(document).ready(function() {
 
                 var gifImage = $('<img>');
 
-                gifImage.attr('src', stillGif);
-                gifImage.attr('alt', response.data[i].title);
-                gifImage.attr('motion', 'still');
-
+                gifImage.attr({'src':stillGif, 'image-still':stillGif, 'image-motion':motionGif, 'alt':response.data[i].title, 'motion':'still'});
+                gifImage.addClass('click-to-change')
                 gifDiv.append(gifImage);
 
                 $('#gif-display').append(gifDiv);
@@ -89,6 +87,19 @@ $(document).ready(function() {
 
         // $('#actor-search').reset();
             
+    })
+
+    $('.click-to-change').on('click', function(){
+        console.log('you clicked me')
+        animate = $(this).attr('motion')
+
+        if(animate === 'still'){
+            $(this).attr('src', $(this).attr('image-motion'));
+            $(this).attr('motion', 'animated');
+        }else if (animate === 'animated'){
+            $(this).attr('src', $(this).attr('image-still'));
+            $(this).attr('motion', 'still');
+        }
     })
     
     $(document).on('click', '.movie-button', function(){
