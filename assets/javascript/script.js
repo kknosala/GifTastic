@@ -5,7 +5,8 @@ $(document).ready(function() {
     
     var apiKey = 'KpAFDpzhrqGAiuF7cxcm6XQmXZ32I0M4';
     var name = '';
-    var viewCount = '';
+    var viewCount = 0;
+    var currentImage = '';
 
     //Function for displaying buttons
     function displayButtons(){
@@ -55,7 +56,7 @@ $(document).ready(function() {
                 var gifImage = $('<img>');
 
                 gifImage.attr({'src':stillGif, 'image-still':stillGif, 'image-motion':motionGif, 'alt':response.data[i].title, 'motion':'still'});
-                gifImage.addClass('click-to-change')
+                gifImage.addClass('Gif-Image')
                 gifDiv.append(gifImage);
 
                 $('#gif-display').append(gifDiv);
@@ -84,12 +85,10 @@ $(document).ready(function() {
         viewCount = $('#how-many').val();
 
         postGif();
-
-        // $('#actor-search').reset();
             
     })
 
-    $('.click-to-change').on('click', function(){
+    $(document).on('click', '.Gif-Image', function() {
         console.log('you clicked me')
         animate = $(this).attr('motion')
 
@@ -100,7 +99,7 @@ $(document).ready(function() {
             $(this).attr('src', $(this).attr('image-still'));
             $(this).attr('motion', 'still');
         }
-    })
+    });
     
     $(document).on('click', '.movie-button', function(){
         
