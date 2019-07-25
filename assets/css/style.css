@@ -4,6 +4,9 @@ body {
 hr {
     color: black;
 }
+.show-more-gifs {
+    display: none;
+}
 #button-container {
     background-color: white;
     border: 2px black solid;
