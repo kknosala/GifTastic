@@ -1,23 +1,38 @@
 body {
+    background-image: url(../images/background1.jpg);
     background-color: grey;
 }
 hr {
-    color: black;
+    color: #5d5c61;
 }
 .show-more-gifs {
     display: none;
 }
+.btn-primary {
+    background-color: #379683;
+    border: #7395AE;
+}
+.btn-primary:hover {
+    background-color: #286d5f;
+}
+#header {
+    background-color: #5d5c61;
+    color: white;
+    /* border: 2px black solid; */
+}
 #button-container {
-    background-color: white;
-    border: 2px black solid;
+    background-color: #557a95;
+    /* border: 2px black solid; */
 }
 #gif-display {
-    background-color: lightblue;
-    border: 2px black solid;
+    background-color: #7395AE;
+    color: white;
+    /* border: 2px black solid; */
     display: flex;
     flex-flow: row wrap;
 }
 #search-field {
-    background-color: lightcoral;
-    border: 2px black solid;
+    background-color: #b1a296;
+    color: white;
+    /* border: 2px black solid; */
 }
