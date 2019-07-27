@@ -34,5 +34,5 @@ hr {
 #search-field {
     background-color: #b1a296;
     color: white;
-    /* border: 2px black solid; */
+    position: fixed;
 }
