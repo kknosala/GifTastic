@@ -18,21 +18,17 @@ hr {
 #header {
     background-color: #5d5c61;
     color: white;
-    /* border: 2px black solid; */
 }
 #button-container {
     background-color: #557a95;
-    /* border: 2px black solid; */
 }
 #gif-display {
     background-color: #7395AE;
     color: white;
-    /* border: 2px black solid; */
     display: flex;
     flex-flow: row wrap;
 }
 #search-field {
     background-color: #b1a296;
     color: white;
-    position: fixed;
 }
